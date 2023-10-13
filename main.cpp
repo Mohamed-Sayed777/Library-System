@@ -8,12 +8,6 @@ struct Book
 {
     string name;
     int num_book = 0, num_borrrow = 0, id;
-    void makeValue(){
-        num_book = num_borrrow = 0;
-    }
-    void makeValue(int _id, string _name){
-        id = _id, name = _name;
-    }
     void makeValue(int _num_book, int _num_borrow, int _id, string _name){
         name = _name, num_book += _num_book, num_borrrow = _num_borrow, id = _id;
     }
@@ -76,7 +70,6 @@ struct Library
         }
         return true;
     }
-    
     int searchUserIndex(string _name){
         int pos = -1;
         for (int i = 0; i < numUser; i++)
@@ -281,7 +274,7 @@ int main(){
             mohamedLibrary.addingUser(name, id);
         } else if(operationNum == 7){
             string nameUser, nameBook; 
-            cout << "Enter User name: " << endl;
+            cout << "Enter  User name: " << endl;
             cin >> nameUser;
             cout << "Eneter Book name: " << endl;
             cin >> nameBook;
@@ -295,6 +288,9 @@ int main(){
             mohamedLibrary.userReturnBook(nameUser, nameBook);
         } else if(operationNum == 9){
             mohamedLibrary.printUser();
+        } else {
+            cout << "Invalid operation, please try again" << endl; 
+            continue;
         }
     }
     return 0;
